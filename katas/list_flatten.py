@@ -9,7 +9,23 @@ def flatten_list(nested_list):
         a flat list containing all integers from the nested structure
     """
     # hint: isinstance()
-    return []
+    
+    # Check if the input list is empty
+    if len(nested_list) == 0:
+        return []
+    
+    flat_list = []
+    # We iterate over the nested list
+    for item in nested_list:
+        # If we have an int item then we can just add it into the flattened list
+        if isinstance(item, int):
+            flat_list.append(item)
+            # Else, object is list and we will have to iterate through this nested list in order to add it
+            # to the flattened one
+        else:
+            flat_list.extend(flatten_list(item))            
+    return flat_list
+    
 
 
 if __name__ == '__main__':
