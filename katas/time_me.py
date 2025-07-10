@@ -12,7 +12,16 @@ def measure_execution_time(func):
         the execution time in milliseconds
     """
     # hint: time.time()
-    return 0
+    
+    # We start the timer
+    start_time = time.time()
+    # Call the function
+    func()
+    # Then we stop the timer and calculate the elapsed time since we started the timer
+    elapsed_time = time.time() - start_time
+    
+    return elapsed_time
+    
 
 
 def sample_function():
