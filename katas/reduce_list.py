@@ -6,8 +6,23 @@ def reduce_array(numbers):
     Args:
         numbers: the list of integers to modify
     """
-    pass
+    # If list is empty
+    if not numbers:
+        return None
+    
+    modified = []
+    modified.append(numbers[0]) # First element is unchanged
+    
+    # Iterate through the list starting from the second element
+    # and calculate the difference with the previous element
+    for i in range(1, len(numbers)):
+        modified.append(numbers[i] - numbers[i - 1])
 
+    # Clear the original list and update it with the modified values
+    numbers.clear()
+    for num in modified:
+       numbers.append(num) 
+    return numbers
 
 def print_list(array):
     """
